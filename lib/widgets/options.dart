@@ -5,6 +5,8 @@ import 'package:quizapp/models/categories.dart';
 import 'package:quizapp/models/questions.dart';
 import 'package:quizapp/utils/constants.dart';
 import 'package:quizapp/utils/networking.dart';
+import 'package:quizapp/screens/error.dart';
+import 'package:quizapp/screens/quiz_page.dart';
 
 class QuizOptionsDialog extends StatefulWidget{
   final Category category;
@@ -99,19 +101,19 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog>{
                 ActionChip(
                   label: Text("Easy"), 
                   labelStyle: TextStyle(color: Colors.white),
-                  backgroundColor: _totalQuestions == 10 ? kPurple : kGrey,
+                  backgroundColor: _difficulty == diffEasy ? kPurple : kGrey,
                   onPressed: () => _selectDifficulty(diffEasy),
                 ),
                 ActionChip(
                   label: Text("Medium"), 
                   labelStyle: TextStyle(color: Colors.white),
-                  backgroundColor: _totalQuestions == 10 ? kPurple : kGrey,
+                  backgroundColor: _difficulty == diffMedium ? kPurple : kGrey,
                   onPressed: () => _selectDifficulty(diffMedium),
                 ),
                 ActionChip(
                   label: Text("Hard"), 
                   labelStyle: TextStyle(color: Colors.white),
-                  backgroundColor: _totalQuestions == 10 ? kPurple : kGrey,
+                  backgroundColor: _difficulty == diffHard ? kPurple : kGrey,
                   onPressed: () => _selectDifficulty(diffHard),
                 ),
               ],
@@ -144,12 +146,30 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog>{
     setState(() {
       _loading = true;
     });
-
-    try{
-    }catch(e){
-      //ToDo: Error handling
+     try {
+      List<Question> questions =  await getQuestions(widget.category, _totalQuestions, _difficulty);
+      Navigator.pop(context);
+      if(questions.length < 1) {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) => ErrorPage(message: "There are not enough questions in the category, with the options you selected.",)
+        ));
+        return;
+      }
+      Navigator.push(context, MaterialPageRoute(
+        builder: (_) => QuizPage(questions: questions, category: widget.category,)
+      ));
+      }on SocketException catch (_) {
+      Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (_) => ErrorPage(message: "Can't reach the servers, \n Please check your internet connection.",)
+      ));
+    } catch(e){
       print(e);
+      Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (_) => ErrorPage(message: "Unexpected error trying to connect to the API",)
+      ));
     }
+    setState(() {
+      _loading=false;
+    });
   }
-
 }
