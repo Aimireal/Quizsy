@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_custom_clippers: ^2.0.0
   font_awesome_flutter: ^9.1.0
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
