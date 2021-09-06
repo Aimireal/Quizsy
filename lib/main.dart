@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/homepage.dart';
+import 'package:quizapp/utils/constants.dart';
 
 void main() => runApp(QuizApp());
 
@@ -10,12 +11,12 @@ class QuizApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       title: 'Quiz App',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.grey,
+        primaryColor: kPink,
+        accentColor: kGrey,
         fontFamily: "Montserrat",
-        buttonColor: Colors.pink,
+        buttonColor: kPink,
         buttonTheme: ButtonThemeData(
-          buttonColor: Colors.pink,
+          buttonColor: kPurple,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),

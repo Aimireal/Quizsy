@@ -1,1 +1,13 @@
-String apiURL = "https://opentdb.com/api.php";
+import 'dart:core' as core;
+import 'package:flutter/cupertino.dart';
+
+const core.String apiURL = "https://opentdb.com/api.php";
+const core.String appName = "QuizApp";
+
+const core.String diffEasy = "easy";
+const core.String diffMedium = "medium";
+const core.String diffHard = "hard";
+
+Color kPink = Color(0xFF9137d1);
+Color kPurple = Color(0xFF321b81);
+Color kGrey = Color(0xFF222222);
