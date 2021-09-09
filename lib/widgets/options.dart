@@ -17,11 +17,11 @@ class QuizOptionsDialog extends StatefulWidget{
 }
 
 class _QuizOptionsDialogState extends State<QuizOptionsDialog>{
-  late int _totalQuestions;
-  late String _difficulty;
-  late bool _loading;
+  late int _totalQuestions = 10;
+  late String _difficulty = "Medium";
+  late bool _loading = false;
 
-    @override
+  @override
   void initstate(){
     //Defaults
     super.initState();

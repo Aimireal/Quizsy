@@ -84,7 +84,31 @@ class HomePage extends StatelessWidget{
   Widget _buildCategoryItem(BuildContext context, int index){
     Category category = categories[index];
     return MaterialButton(
-      onPressed: () => _categoryPressed);
+      onPressed: () => _categoryPressed(context, category),
+      elevation: 1.0,
+      highlightElevation: 1.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      color: kGrey,
+      textColor: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if(category.icon != null)
+            Icon(category.icon),
+          if(category.icon != null)
+            SizedBox(height: 5.0),
+          AutoSizeText(
+            category.name,
+            minFontSize: 10.0,
+            textAlign: TextAlign.center,
+            maxLines: 3,
+            wrapWords: false,
+          ),
+        ],
+      ),
+    );
   }
 
   //Handle selection of quiz type
