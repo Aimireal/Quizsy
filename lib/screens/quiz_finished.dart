@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/models/questions.dart';
 import 'package:quizapp/screens/check_answers.dart';
+import 'package:quizapp/utils/constants.dart';
 
 class QuizFinishedPage extends StatelessWidget {
   final List<Question> questions;
@@ -97,7 +98,7 @@ class QuizFinishedPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   ElevatedButton(
-                    child: Text("Goto Home"),
+                    child: Text("Return to menu"),
                     onPressed: () => Navigator.pop(context),
                   ),
                   ElevatedButton(

@@ -21,9 +21,7 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog>{
   late String _difficulty = "Medium";
   late bool _loading = false;
 
-  @override
   void initstate(){
-    //Defaults
     super.initState();
     _totalQuestions = 10;
     _difficulty = "medium";
@@ -38,14 +36,16 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog>{
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16.0),
-            color: Colors.grey.shade200,
+            color: kGrey,
             child: Text(
               widget.category.name,
-              //style: Theme.of(context).textTheme.headline6.copyWith(),
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
           ),
           SizedBox(height: 10.0),
-          Text("Select the Number of Questions"),
+          Text("Select the Number of Questions"),        
           SizedBox(
             width: double.infinity,
             child: Wrap(
@@ -88,6 +88,7 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog>{
               ],
             ),
           ),
+          
           SizedBox(height: 20),
           Text("Choose your difficulty"),
           SizedBox(

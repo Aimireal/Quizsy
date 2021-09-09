@@ -1,8 +1,9 @@
 import 'dart:core' as core;
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 const core.String apiURL = "https://opentdb.com/api.php";
-const core.String appName = "QuizApp";
+const core.String appName = "Quizsy";
 
 const core.String diffEasy = "easy";
 const core.String diffMedium = "medium";

@@ -21,9 +21,16 @@ class CheckAnswersPage extends StatelessWidget {
             clipper: WaveClipperTwo(),
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor
-              ),
-              height: 200,
+                gradient: LinearGradient(
+                colors: [
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).accentColor
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter
+              )
+            ),
+              height: double.infinity,
             ),
           ),
           ListView.builder(

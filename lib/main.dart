@@ -9,10 +9,11 @@ class QuizApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Quiz App',
+      title: 'Quizsy',
       theme: ThemeData(
         primaryColor: kPink,
-        accentColor: kGrey,
+        accentColor: kPurple,
+        backgroundColor: kGrey,
         fontFamily: "Montserrat",
         buttonColor: kPink,
         buttonTheme: ButtonThemeData(
@@ -21,7 +22,16 @@ class QuizApp extends StatelessWidget{
             borderRadius: BorderRadius.circular(20.0),
           ),
           textTheme: ButtonTextTheme.primary
-        )
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: kGrey,
+            textStyle: TextStyle(
+              color: Colors.white
+            ),
+          ),
+        ),
       ),
       home: HomePage(),
     );

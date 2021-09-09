@@ -46,9 +46,17 @@ class _QuizPageState extends State<QuizPage> {
             ClipPath(
               clipper: WaveClipperTwo(),
               child: Container(
-                decoration:
-                    BoxDecoration(color: Theme.of(context).primaryColor),
-                height: 200,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Theme.of(context).primaryColor,
+                      Theme.of(context).accentColor
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter
+                  )
+                ),
+                height: double.infinity,
               ),
             ),
             Padding(

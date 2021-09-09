@@ -34,9 +34,17 @@ class HomePage extends StatelessWidget{
           ClipPath(
             clipper: WaveClipperTwo(),
             child: Container(
-              decoration:
-                BoxDecoration(color: Theme.of(context).primaryColor),
-              height: 200,
+              decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).accentColor
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter
+              )
+            ),
+              height: double.infinity,
             ),
           ),
           CustomScrollView(
@@ -48,7 +56,7 @@ class HomePage extends StatelessWidget{
                     horizontal: 16.0, vertical: 8.0
                   ),
                   child: Text(
-                    "Select a category to start the quiz",
+                    "Choose your Category",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
