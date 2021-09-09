@@ -9,7 +9,7 @@ Utilises the OpenTriviaAPI for pulling the questions and answers
 - Works across web/android seamlessly
 - Sleek, easily navigated interfaces
 
-![alt_text](https://github.com/Aimireal/FlutterWeather/blob/master/assets/quizsyui.png)
+![alt_text](https://github.com/Aimireal/FlutterQuiz/blob/master/assets/quizsyui.png)
 *(Note: Interface displaying a question, and UI as of v1.0)*
 
 ## To Run:
