@@ -41,6 +41,7 @@ class _QuizPageState extends State<QuizPage> {
           title: Text(widget.category.name),
           elevation: 0,
         ),
+        
         body: Stack(
           children: <Widget>[
             ClipPath(
@@ -127,7 +128,7 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 
-  void _nextSubmit() {
+  void _nextSubmit(){
     if (_answers[_currentIndex] == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("You must select an answer to continue.")
@@ -135,13 +136,15 @@ class _QuizPageState extends State<QuizPage> {
       return;
     }
     if (_currentIndex < (widget.questions.length - 1)) {
-      setState(() {
+      setState((){
         _currentIndex++;
       });
     } else {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (_) => QuizFinishedPage(
-              questions: widget.questions, answers: _answers)));
+        builder: (_) => QuizFinishedPage(
+          questions: widget.questions, answers: _answers)
+        )
+      );
     }
   }
 

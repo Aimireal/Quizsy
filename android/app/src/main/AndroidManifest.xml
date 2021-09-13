@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.quizapp">
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+
    <application
-        android:label="quizapp"
+        android:label="Quizsy"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

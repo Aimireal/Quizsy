@@ -5,6 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:quizapp/models/categories.dart';
 import 'package:quizapp/utils/constants.dart';
 import 'package:quizapp/widgets/options.dart';
+import 'package:quizapp/screens/login_screen.dart';
 
 
 class HomePage extends StatelessWidget{
@@ -22,12 +23,41 @@ class HomePage extends StatelessWidget{
     Colors.brown
   ];
 
-   @override
+  @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text(appName),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/quizsylogo.png',
+              fit: BoxFit.contain,
+              height: 40,
+            ),
+            Container(
+              padding: const EdgeInsets.all(5.0),
+              child: Text("Quizsy"),
+            )
+          ],
+        ),
         elevation: 0,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.account_circle_rounded,
+              color: Colors.white
+            ),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginScreen(),
+                )
+              );
+            },
+          )
+        ]
       ),
       body: Stack(
         children: <Widget>[
