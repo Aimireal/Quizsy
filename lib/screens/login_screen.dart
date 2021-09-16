@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:quizapp/screens/signup_screen.dart';
 import 'package:quizapp/utils/constants.dart';
 import 'package:quizapp/widgets/bezier_container.dart';
+
 
 class LoginPage extends StatefulWidget{
   LoginPage({Key? key}) : super(key: key);
@@ -12,6 +16,9 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPageState extends State<LoginPage>{
+  //final FirebaseAuth _auth = FirebaseAuth.instance;
+  //final GoogleSignIn _googleSignIn = GoogleSignIn();
+
   Widget _backButton(){
     return InkWell(
       onTap: (){
