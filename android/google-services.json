@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "281332193460",
+    "project_id": "quizsy-78aaa",
+    "storage_bucket": "quizsy-78aaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281332193460:android:1badd4b304c9eaf67cdfe1",
+        "android_client_info": {
+          "package_name": "com.aimireal.quizsy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281332193460-3t5t4u33fs79g2t6t7v70ag72gfjn1rt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAncDc82Wro-wRG7d37TTWeVKDLLANbuBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281332193460-3t5t4u33fs79g2t6t7v70ag72gfjn1rt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
