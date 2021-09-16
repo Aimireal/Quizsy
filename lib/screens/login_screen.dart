@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
 import 'package:quizapp/screens/signup_screen.dart';
 import 'package:quizapp/utils/constants.dart';
+import 'package:quizapp/utils/sign_in.dart';
 import 'package:quizapp/widgets/bezier_container.dart';
 
 
@@ -16,9 +14,6 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPageState extends State<LoginPage>{
-  //final FirebaseAuth _auth = FirebaseAuth.instance;
-  //final GoogleSignIn _googleSignIn = GoogleSignIn();
-
   Widget _backButton(){
     return InkWell(
       onTap: (){
@@ -134,56 +129,62 @@ class _LoginPageState extends State<LoginPage>{
     );
   }
 
-  Widget _facebookButton(){
-    return Container(
-      height: 50,
-      margin: EdgeInsets.symmetric(vertical: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color(0xffDB4437),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(5),
-                  topLeft: Radius.circular(5)
+  Widget _googleButton(){
+    return InkWell(
+      onTap: (){
+        signInWithGoogle();
+        Navigator.pop(context);
+      },
+      child: Container(
+        height: 50,
+        margin: EdgeInsets.symmetric(vertical: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color(0xffDB4437),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(5),
+                    topLeft: Radius.circular(5)
+                  ),
+                ),
+                alignment: Alignment.center,
+                child: Text('g',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w400
+                  )
                 ),
               ),
-              alignment: Alignment.center,
-              child: Text('g',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w400
-                )
+            ),
+            Expanded(
+              flex: 5,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color(0xffDB4437),
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(5),
+                      topRight: Radius.circular(5)),
+                ),
+                alignment: Alignment.center,
+                child: Text('Log in with Google',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400
+                  )
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 5,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color(0xffDB4437),
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(5),
-                    topRight: Radius.circular(5)),
-              ),
-              alignment: Alignment.center,
-              child: Text('Log in with Google',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400
-                )
-              ),
-            ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      )
     );
   }
 
@@ -289,7 +290,7 @@ class _LoginPageState extends State<LoginPage>{
                     ),
                   ),
                   _divider(),
-                  _facebookButton(),
+                  _googleButton(),
                   SizedBox(height: height * .055),
                   _createAccountLabel(),
                 ],
